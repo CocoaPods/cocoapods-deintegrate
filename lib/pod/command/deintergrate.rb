@@ -2,17 +2,27 @@ module Pod
   class Command
     class Deintergrate < Command
       self.summary = 'De-intergrate CocoaPods from your project.'
+      self.arguments = [
+        CLAide::Argument.new('XCODE_PROJECT', false)
+      ]
+
+      def initialize(argv)
+        path = argv.shift_argument()
+        @project_path = Pathname.new(path) if path
+        super
+      end
 
       def validate!
         super
 
-        xcodeprojs = Pathname.glob('*.xcodeproj')
-        if xcodeprojs.size == 1
-          @project_path = xcodeprojs.first
-        else
-          # TODO ask user to define project as argument
-          raise Informative, 'Could not find a valid project file.'
+        unless @project_path
+          xcodeprojs = Pathname.glob('*.xcodeproj')
+          @project_path = xcodeprojs.first if xcodeprojs.size == 1
         end
+
+        help! 'A valid Xcode project file is required.' unless @project_path
+        help! "#{@project_path} does not exist." unless @project_path.exist?
+        help! "#{@project_path} is not a valid Xcode project." unless @project_path.directory? && (@project_path + 'project.pbxproj').exist?
       end
 
       def run
