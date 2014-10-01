@@ -11,12 +11,6 @@ module Pod
     before do
       @command = Command.parse(['deintergrate'])
     end
-
-    it 'should error if you do not have a podfile in current directory' do
-      should.raise Informative do
-        @command.validate!
-      end.message.should.match /Podfile/
-    end
   end
 end
 
