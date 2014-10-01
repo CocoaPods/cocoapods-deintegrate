@@ -1,2 +1,2 @@
-require 'pod/command/deintergrate'
+require 'pod/command/deintegrate'
 

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    cocoapods-deintergrate (0.1.0)
+    cocoapods-deintegrate (0.1.0)
       cocoapods
 
 GEM
@@ -65,7 +65,7 @@ PLATFORMS
 
 DEPENDENCIES
   bacon
-  cocoapods-deintergrate!
+  cocoapods-deintegrate!
   mocha
   mocha-on-bacon
   rake

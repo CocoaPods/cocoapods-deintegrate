@@ -1,23 +1,23 @@
-# cocoapods-deintergrate
+# cocoapods-deintegrate
 
-A CocoaPods plugin to remove and de-intergrate CocoaPods from your project.
+A CocoaPods plugin to remove and deintegrate CocoaPods from your project.
 Removing all traces of CocoaPods from an Xcode project.
 
 ## Installation
 
 ```bash
-$ gem install cocoapods-deintergrate
+$ gem install cocoapods-deintegrate
 ```
 
 ## Usage
 
-Running `pod deintergrate` will de-intergrate your Xcode project from
+Running `pod deintegrate` will deintegrate your Xcode project from
 CocoaPods. Before running you should ensure you have a backup of your project.
 
 ```bash
-$ pod deintergrate
-Deintergrating Palaver.xcodeproj
-Deintergrating target Palaver
+$ pod deintegrate
+Deintegrating Palaver.xcodeproj
+Deintegrating target Palaver
 Deleted 1 'Copy Pods Resources' build phases.
 Deleted 1 'Check Pods Manifest.lock' build phases.
 Removing Pod libraries from build phase:
@@ -32,11 +32,11 @@ Deleting Pod file references from project
 - Pods-PalaverTests.release.xcconfig
 - Pods-PalaverTests.ad hoc.xcconfig
 Deleted 1 `Pod` groups from project.
-Deintergrating target PalaverTests
+Deintegrating target PalaverTests
 Deleted 1 'Copy Pods Resources' build phases.
 Deleted 1 'Check Pods Manifest.lock' build phases.
 
-Project has been deintergrated. No traces of CocoaPods left in project.
+Project has been deintegrated. No traces of CocoaPods left in project.
 Note: The workspace referencing the Pods project still remains.
 ```
 
@@ -52,5 +52,5 @@ This CocoaPods plugin was created by [Kyle Fuller](http://kylefuller.co.uk/)
 
 ### License
 
-cocoapods-deintergrate is released under the MIT license. See [LICENSE](LICENSE).
+cocoapods-deintegrate is released under the MIT license. See [LICENSE](LICENSE).
 

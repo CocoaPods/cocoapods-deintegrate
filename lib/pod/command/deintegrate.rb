@@ -1,9 +1,9 @@
 module Pod
   class Command
-    class Deintergrate < Command
-      self.summary = 'De-intergrate CocoaPods from your project.'
+    class Deintegrate < Command
+      self.summary = 'Deintegrate CocoaPods from your project.'
       self.description = <<-DESC
-        Deintergrates your project from CocoaPods. Removing all traces
+        Deintegrate your project from CocoaPods. Removing all traces
         of CocoaPods from your Xcode project.
 
         If no xcodeproj is specified, then a search for an Xcode project
@@ -34,13 +34,13 @@ module Pod
 
       def run
         # We don't traverse a Podfile and try to de-intergrate each target.
-        # Instead, we're just deintergrating anything CP could have done to a
+        # Instead, we're just deintegrating anything CP could have done to a
         # project. This is so that it will clean stale, and modified projects.
 
-        UI.puts("Deintergrating #{@project_path.basename}".green)
+        UI.puts("Deintegrating #{@project_path.basename}".green)
 
         project = Xcodeproj::Project.open(@project_path)
-        deintergrate_project(project)
+        deintegrate_project(project)
         project.save()
 
         pods_directory = Pathname.new('Pods')
@@ -50,16 +50,16 @@ module Pod
         end
 
         UI.puts('')
-        UI.puts('Project has been deintergrated. No traces of CocoaPods left in project.'.green)
+        UI.puts('Project has been deintegrated. No traces of CocoaPods left in project.'.green)
         UI.puts('Note: The workspace referencing the Pods project still remains.')
       end
 
     private
 
-      def deintergrate_project(project)
+      def deintegrate_project(project)
         project.targets.each do |target|
-          UI.section("Deintergrating target #{target.name}") do
-            deintergrate_target(target)
+          UI.section("Deintegrating target #{target.name}") do
+            deintegrate_target(target)
           end
 
           delete_pods_file_references(project)
@@ -99,13 +99,13 @@ module Pod
         end
       end
 
-      def deintergrate_target(target)
-        deintergrate_shell_script_phase(target, 'Copy Pods Resources')
-        deintergrate_shell_script_phase(target, 'Check Pods Manifest.lock')
-        deintergrate_pods_libraries(target)
+      def deintegrate_target(target)
+        deintegrate_shell_script_phase(target, 'Copy Pods Resources')
+        deintegrate_shell_script_phase(target, 'Check Pods Manifest.lock')
+        deintegrate_pods_libraries(target)
       end
 
-      def deintergrate_pods_libraries(target)
+      def deintegrate_pods_libraries(target)
         frameworks_build_phase = target.frameworks_build_phase
 
         pods_build_files = frameworks_build_phase.files.select do |build_file|
@@ -122,7 +122,7 @@ module Pod
         end
       end
 
-      def deintergrate_shell_script_phase(target, phase_name)
+      def deintegrate_shell_script_phase(target, phase_name)
         phases = target.shell_script_build_phases.select do |phase|
           phase.name == phase_name
         end
