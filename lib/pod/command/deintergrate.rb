@@ -26,8 +26,15 @@ module Pod
         deintergrate_project(project)
         project.save()
 
+        pods_directory = Pathname.new('Pods')
+        if pods_directory.exist?
+          UI.puts('Removing `Pods/` directory.')
+          pods_directory.rmtree()
+        end
+
         UI.puts('')
         UI.puts('Project has been deintergrated. No traces of CocoaPods left in project.'.green)
+        UI.puts('Note: The workspace referencing the Pods project still remains.')
       end
 
     private
