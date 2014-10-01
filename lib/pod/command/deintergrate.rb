@@ -2,6 +2,13 @@ module Pod
   class Command
     class Deintergrate < Command
       self.summary = 'De-intergrate CocoaPods from your project.'
+      self.description = <<-DESC
+        Deintergrates your project from CocoaPods. Removing all traces
+        of CocoaPods from your Xcode project.
+
+        If no xcodeproj is specified, then a search for an Xcode project
+        will be made in the current directory.
+      DESC
       self.arguments = [
         CLAide::Argument.new('XCODE_PROJECT', false)
       ]
