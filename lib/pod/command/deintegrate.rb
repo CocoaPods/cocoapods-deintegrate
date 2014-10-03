@@ -43,9 +43,9 @@ module Pod
         deintegrate_project(project)
         project.save()
 
-        pods_directory = Pathname.new('Pods')
+        pods_directory = config.sandbox.root
         if pods_directory.exist?
-          UI.puts('Removing `Pods/` directory.')
+          UI.puts("Removing `#{pods_directory.relative_path_from(Dir.pwd)}` directory.")
           pods_directory.rmtree()
         end
 
@@ -138,4 +138,3 @@ module Pod
     end
   end
 end
-
