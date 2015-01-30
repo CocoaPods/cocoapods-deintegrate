@@ -88,15 +88,9 @@ module Pod
           end
         end
 
-        # Delete empty `Pods` directory if exists
-        pod_groups = project.main_group.recursive_children_groups.select do |group|
-          group.name == 'Pods' && group.children.empty?
-        end
-
-        unless pod_groups.empty?
-          pod_groups.each(&:remove_from_project)
-          UI.puts "Deleted #{pod_groups.count} `Pod` groups from project."
-        end
+        # Delete empty `Pods` group if exists
+        delete_empty_group(project, 'Pods')
+        delete_empty_group(project, 'Frameworks')
       end
 
       def deintegrate_target(target)
@@ -133,6 +127,17 @@ module Pod
           end
 
           UI.puts("Deleted #{phases.count} '#{phase_name}' build phases.")
+        end
+      end
+
+      def delete_empty_group(project, group_name)
+        groups = project.main_group.recursive_children_groups.select do |group|
+          group.name == group_name && group.children.empty?
+        end
+
+        unless groups.empty?
+          groups.each(&:remove_from_project)
+          UI.puts "Deleted #{groups.count} empty `#{group_name}` groups from project."
         end
       end
     end
