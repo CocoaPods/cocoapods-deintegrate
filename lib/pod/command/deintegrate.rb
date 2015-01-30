@@ -45,7 +45,7 @@ module Pod
 
         pods_directory = config.sandbox.root
         if pods_directory.exist?
-          UI.puts("Removing `#{pods_directory.relative_path_from(Dir.pwd)}` directory.")
+          UI.puts("Removing `#{pods_directory.relative_path_from(Pathname.new(Dir.pwd))}` directory.")
           pods_directory.rmtree()
         end
 
