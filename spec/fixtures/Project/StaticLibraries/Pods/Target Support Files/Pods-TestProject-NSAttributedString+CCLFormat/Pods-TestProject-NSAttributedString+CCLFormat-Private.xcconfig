@@ -1,0 +1,5 @@
+#include "Pods-TestProject-NSAttributedString+CCLFormat.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/NSAttributedString+CCLFormat" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Expecta" "${PODS_ROOT}/Headers/Public/NSAttributedString+CCLFormat"
+OTHER_LDFLAGS = -ObjC
+PODS_ROOT = ${SRCROOT}
