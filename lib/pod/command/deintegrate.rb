@@ -75,7 +75,8 @@ module Pod
 
         pod_files = groups.map do |group|
           group.files.select do |obj|
-            obj.name =~ /^Pods.*\.xcconfig$/i or obj.path =~ /^libPods.*\.a$/i
+            obj.name =~ /^Pods.*\.xcconfig$/i or
+                obj.path =~ /^(libPods.*\.a)|(Pods_.*\.framework)$/i
           end
         end.flatten
 
@@ -96,6 +97,7 @@ module Pod
       def deintegrate_target(target)
         deintegrate_shell_script_phase(target, 'Copy Pods Resources')
         deintegrate_shell_script_phase(target, 'Check Pods Manifest.lock')
+        deintegrate_shell_script_phase(target, 'Embed Pods Frameworks')
         deintegrate_pods_libraries(target)
       end
 
@@ -103,7 +105,7 @@ module Pod
         frameworks_build_phase = target.frameworks_build_phase
 
         pods_build_files = frameworks_build_phase.files.select do |build_file|
-          build_file.display_name =~ /^libPods.*\.a$/i
+          build_file.display_name =~ /^(libPods.*\.a)|(Pods_.*\.framework)$/i
         end
 
         unless pods_build_files.empty?

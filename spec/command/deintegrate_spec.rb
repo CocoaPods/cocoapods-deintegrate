@@ -50,8 +50,12 @@ module Pod
       temporary_directory.rmtree
     end
 
-    it 'deintegrates a static library project' do
+    it 'deintegrates a static library integrated project' do
       deintegrate_project('StaticLibraries')
+    end
+
+    it 'deintegrates a framework integrated project' do
+      deintegrate_project('Frameworks')
     end
   end
 end
