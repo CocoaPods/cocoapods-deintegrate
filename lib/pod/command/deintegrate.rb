@@ -55,9 +55,15 @@ module Pod
       end
 
     private
+    
+      def native_targets(project)
+        project.targets.reject do |target|
+          target.is_a? Xcodeproj::Project::Object::PBXAggregateTarget
+        end
+      end
 
       def deintegrate_project(project)
-        project.targets.each do |target|
+        native_targets(project).each do |target|
           UI.section("Deintegrating target #{target.name}") do
             deintegrate_target(target)
           end
