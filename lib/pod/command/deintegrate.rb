@@ -67,9 +67,9 @@ module Pod
           UI.section("Deintegrating target #{target.name}") do
             deintegrate_target(target)
           end
-
-          delete_pods_file_references(project)
         end
+
+        delete_pods_file_references(project)
       end
 
       def delete_pods_file_references(project)
@@ -119,7 +119,7 @@ module Pod
 
           pods_build_files.each do |build_file|
             UI.puts("- #{build_file.display_name}")
-           frameworks_build_phase.remove_build_file(build_file)
+            frameworks_build_phase.remove_build_file(build_file)
           end
         end
       end
