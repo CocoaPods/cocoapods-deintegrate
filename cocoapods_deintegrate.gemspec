@@ -7,9 +7,9 @@ Gem::Specification.new do |spec|
   spec.name          = 'cocoapods-deintegrate'
   spec.version       = CocoapodsDeintegrate::VERSION
   spec.authors       = ['Kyle Fuller']
-  spec.email         = ['inbox@kylefuller.co.uk']
-  spec.summary       = 'A CocoaPods plugin to remove and de-intergrate CocoaPods from your project.'
-  spec.homepage      = 'https://github.com/kylef/cocoapods-deintergrate'
+  spec.email         = ['kyle@fuller.li']
+  spec.summary       = 'A CocoaPods plugin to remove and de-integrate CocoaPods from your project.'
+  spec.homepage      = 'https://github.com/kylef/cocoapods-deintegrate'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($/)
