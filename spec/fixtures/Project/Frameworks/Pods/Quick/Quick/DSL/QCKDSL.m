@@ -1,5 +1,6 @@
 #import "QCKDSL.h"
-#import <Quick/Quick-Swift.h>
+#import "World.h"
+#import "World+DSL.h"
 
 void qck_beforeSuite(QCKDSLEmptyBlock closure) {
     [[World sharedWorld] beforeSuite:closure];
@@ -14,7 +15,7 @@ void qck_sharedExamples(NSString *name, QCKDSLSharedExampleBlock closure) {
 }
 
 void qck_describe(NSString *description, QCKDSLEmptyBlock closure) {
-    [[World sharedWorld] describe:description closure:closure flags:@{}];
+    [[World sharedWorld] describe:description flags:@{} closure:closure];
 }
 
 void qck_context(NSString *description, QCKDSLEmptyBlock closure) {
@@ -25,8 +26,16 @@ void qck_beforeEach(QCKDSLEmptyBlock closure) {
     [[World sharedWorld] beforeEach:closure];
 }
 
+void qck_beforeEachWithMetadata(QCKDSLExampleMetadataBlock closure) {
+    [[World sharedWorld] beforeEachWithMetadata:closure];
+}
+
 void qck_afterEach(QCKDSLEmptyBlock closure) {
     [[World sharedWorld] afterEach:closure];
+}
+
+void qck_afterEachWithMetadata(QCKDSLExampleMetadataBlock closure) {
+    [[World sharedWorld] afterEachWithMetadata:closure];
 }
 
 QCKItBlock qck_it_builder(NSDictionary *flags, NSString *file, NSUInteger line) {
@@ -54,7 +63,7 @@ void qck_pending(NSString *description, QCKDSLEmptyBlock closure) {
 }
 
 void qck_xdescribe(NSString *description, QCKDSLEmptyBlock closure) {
-    [[World sharedWorld] xdescribe:description closure:closure flags:@{}];
+    [[World sharedWorld] xdescribe:description flags:@{} closure:closure];
 }
 
 void qck_xcontext(NSString *description, QCKDSLEmptyBlock closure) {
@@ -62,7 +71,7 @@ void qck_xcontext(NSString *description, QCKDSLEmptyBlock closure) {
 }
 
 void qck_fdescribe(NSString *description, QCKDSLEmptyBlock closure) {
-    [[World sharedWorld] fdescribe:description closure:closure flags:@{}];
+    [[World sharedWorld] fdescribe:description flags:@{} closure:closure];
 }
 
 void qck_fcontext(NSString *description, QCKDSLEmptyBlock closure) {

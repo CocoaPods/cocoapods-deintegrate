@@ -1,5 +1,5 @@
 framework module Quick {
-  umbrella header "Pods-TestProjectTests-Quick-umbrella.h"
+  umbrella header "Quick-umbrella.h"
 
   export *
   module * { export * }

@@ -1,42 +1,21 @@
 PODS:
-  - QueryKit (0.9.1):
-    - QueryKit/Attribute (= 0.9.1)
-    - QueryKit/ObjectiveC (= 0.9.1)
-    - QueryKit/QuerySet (= 0.9.1)
-    - QueryKit/Swift (= 0.9.1)
-  - QueryKit/Attribute (0.9.1):
-    - QueryKit/Attribute/Bridge (= 0.9.1)
-    - QueryKit/Attribute/ObjectiveC (= 0.9.1)
-    - QueryKit/Attribute/Swift (= 0.9.1)
-  - QueryKit/Attribute/Bridge (0.9.1):
-    - QueryKit/Attribute/ObjectiveC
-    - QueryKit/Attribute/Swift
-  - QueryKit/Attribute/ObjectiveC (0.9.1)
-  - QueryKit/Attribute/Swift (0.9.1):
-    - QueryKit/QuerySet/Swift
-  - QueryKit/ObjectiveC (0.9.1):
-    - QueryKit/Attribute/ObjectiveC
-    - QueryKit/QuerySet/ObjectiveC
-  - QueryKit/QuerySet (0.9.1):
-    - QueryKit/QuerySet/Bridge (= 0.9.1)
-    - QueryKit/QuerySet/ObjectiveC (= 0.9.1)
-    - QueryKit/QuerySet/Swift (= 0.9.1)
-  - QueryKit/QuerySet/Bridge (0.9.1):
-    - QueryKit/QuerySet/ObjectiveC
-    - QueryKit/QuerySet/Swift
-  - QueryKit/QuerySet/ObjectiveC (0.9.1)
-  - QueryKit/QuerySet/Swift (0.9.1)
-  - QueryKit/Swift (0.9.1):
-    - QueryKit/Attribute/Swift
-    - QueryKit/QuerySet/Swift
-  - Quick (0.2.2)
+  - QueryKit (0.11.0):
+    - QueryKit/Bridge (= 0.11.0)
+    - QueryKit/ObjectiveC (= 0.11.0)
+    - QueryKit/Swift (= 0.11.0)
+  - QueryKit/Bridge (0.11.0):
+    - QueryKit/ObjectiveC
+    - QueryKit/Swift
+  - QueryKit/ObjectiveC (0.11.0)
+  - QueryKit/Swift (0.11.0)
+  - Quick (0.6.0)
 
 DEPENDENCIES:
   - QueryKit
   - Quick
 
 SPEC CHECKSUMS:
-  QueryKit: c2ded7784aa57d182a1998e06381633da178443d
-  Quick: 7b89ff625e72ef931c2a9ef2f25ac3a9d2457763
+  QueryKit: d74ded2c1345fd7d1479ea84bd6c9d14ab486e74
+  Quick: 563686dbcf0ae0f9f7401ac9cd2d786ee1b7f3d7
 
-COCOAPODS: 0.36.0.beta.2
+COCOAPODS: 0.38.2

@@ -1,12 +1,13 @@
 platform :ios, '8.0'
 
-use_frameworks!(true)
+use_frameworks!
 
 target 'TestProject' do
   pod 'QueryKit'
 end
 
 target 'TestProjectTests' do
+  pod 'QueryKit'
   pod 'Quick'
 end
 

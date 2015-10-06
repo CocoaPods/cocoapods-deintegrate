@@ -1,5 +1,5 @@
 framework module QueryKit {
-  umbrella header "Pods-TestProject-QueryKit-umbrella.h"
+  umbrella header "QueryKit-umbrella.h"
 
   export *
   module * { export * }

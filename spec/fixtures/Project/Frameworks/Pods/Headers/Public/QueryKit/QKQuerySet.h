@@ -1,1 +1,0 @@
-../../../QueryKit/QueryKit/ObjectiveC/QKQuerySet.h
