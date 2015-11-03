@@ -1,7 +1,7 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'cocoapods_deintegrate.rb'
+require 'cocoapods/deintegrate/gem_version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'cocoapods-deintegrate'
@@ -18,4 +18,3 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'cocoapods', '~> 0.34'
 end
-

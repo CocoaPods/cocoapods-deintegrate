@@ -1,4 +1,2 @@
-module CocoapodsDeintegrate
-  VERSION = '0.2.1'
-end
-
+require 'cocoapods/deintegrate/gem_version'
+require 'cocoapods/deintegrator'
