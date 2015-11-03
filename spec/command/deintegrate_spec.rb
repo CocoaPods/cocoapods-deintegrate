@@ -30,7 +30,7 @@ def deintegrate_project(named)
   output = `diff -r #{fixture_project('None')} #{temporary_directory}`
   puts(output) unless $?.success?
 
-  $?.success?.should == true
+  $?.should.be.success
 end
 
 module Pod
@@ -59,4 +59,3 @@ module Pod
     end
   end
 end
-
