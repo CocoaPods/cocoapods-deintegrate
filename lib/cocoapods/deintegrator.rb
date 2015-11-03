@@ -38,7 +38,7 @@ module Pod
       frameworks_build_phase = target.frameworks_build_phase
 
       pods_build_files = frameworks_build_phase.files.select do |build_file|
-        build_file.display_name =~ /^(libPods.*\.a)|(Pods_.*\.framework)$/i
+        build_file.display_name =~ /^(libPods.*\.a)|(Pods.*\.framework)$/i
       end
 
       unless pods_build_files.empty?
