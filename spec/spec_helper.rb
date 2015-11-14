@@ -6,6 +6,7 @@ require 'cocoapods_plugin'
 
 require 'mocha'
 require 'mocha-on-bacon'
+require 'pretty_bacon'
 
 module Pod
   module UI

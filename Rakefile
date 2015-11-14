@@ -1,11 +1,19 @@
 require 'bundler/gem_tasks'
+require 'bundler/setup'
 
-task :default => :spec
+task default: :spec
 
 task :spec do
   title 'Running Specs'
   files = FileList['spec/**/*_spec.rb'].shuffle.join(' ')
   sh "bundle exec bacon #{files}"
+
+  Rake::Task[:rubocop].invoke
+end
+
+require 'rubocop/rake_task'
+RuboCop::RakeTask.new do
+  title 'Running RuboCop'
 end
 
 def title(title)
@@ -16,4 +24,3 @@ def title(title)
   puts '-' * 80
   puts
 end
-

@@ -12,11 +12,11 @@ module Pod
         will be made in the current directory.
       DESC
       self.arguments = [
-        CLAide::Argument.new('XCODE_PROJECT', false)
+        CLAide::Argument.new('XCODE_PROJECT', false),
       ]
 
       def initialize(argv)
-        path = argv.shift_argument()
+        path = argv.shift_argument
         @project_path = Pathname.new(path) if path
         super
       end
@@ -31,7 +31,9 @@ module Pod
 
         help! 'A valid Xcode project file is required.' unless @project_path
         help! "#{@project_path} does not exist." unless @project_path.exist?
-        help! "#{@project_path} is not a valid Xcode project." unless @project_path.directory? && (@project_path + 'project.pbxproj').exist?
+        unless @project_path.directory? && (@project_path + 'project.pbxproj').exist?
+          help! "#{@project_path} is not a valid Xcode project."
+        end
 
         @project = Xcodeproj::Project.open(@project_path)
       end
