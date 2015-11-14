@@ -30,7 +30,7 @@ module Pod
       pods_directory = config.sandbox.root
       if pods_directory.exist?
         UI.puts("Removing #{UI.path pods_directory} directory.")
-        pods_directory.rmtree()
+        pods_directory.rmtree
       end
     end
 
@@ -86,7 +86,7 @@ module Pod
       pod_files = groups.flat_map do |group|
         group.files.select do |obj|
           obj.name =~ /^Pods.*\.xcconfig$/i ||
-              obj.path =~ /^(libPods.*\.a)|(Pods_.*\.framework)$/i
+            obj.path =~ /^(libPods.*\.a)|(Pods_.*\.framework)$/i
         end
       end
 
