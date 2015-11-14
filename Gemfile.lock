@@ -1,20 +1,7 @@
-PATH
-  remote: .
+GIT
+  remote: https://github.com/CocoaPods/CocoaPods.git
+  revision: 313ffd35087e38f1b950773808c7564f6a0ba85f
   specs:
-    cocoapods-deintegrate (0.2.1)
-      cocoapods (~> 0.34)
-
-GEM
-  remote: https://rubygems.org/
-  specs:
-    activesupport (4.2.4)
-      i18n (~> 0.7)
-      json (~> 1.7, >= 1.7.7)
-      minitest (~> 5.1)
-      thread_safe (~> 0.3, >= 0.3.4)
-      tzinfo (~> 1.1)
-    bacon (1.2.0)
-    claide (0.9.1)
     cocoapods (0.39.0)
       activesupport (>= 4.0.2)
       claide (~> 0.9.1)
@@ -30,6 +17,23 @@ GEM
       molinillo (~> 0.4.0)
       nap (~> 1.0)
       xcodeproj (~> 0.28.2)
+
+PATH
+  remote: .
+  specs:
+    cocoapods-deintegrate (0.2.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (4.2.5)
+      i18n (~> 0.7)
+      json (~> 1.7, >= 1.7.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.3, >= 0.3.4)
+      tzinfo (~> 1.1)
+    bacon (1.2.0)
+    claide (0.9.1)
     cocoapods-core (0.39.0)
       activesupport (>= 4.0.2)
       fuzzy_match (~> 2.0.4)
@@ -49,7 +53,7 @@ GEM
     i18n (0.7.0)
     json (1.8.3)
     metaclass (0.0.4)
-    minitest (5.8.1)
+    minitest (5.8.2)
     mocha (1.1.0)
       metaclass (~> 0.0.1)
     mocha-on-bacon (0.2.2)
@@ -71,6 +75,7 @@ PLATFORMS
 
 DEPENDENCIES
   bacon
+  cocoapods!
   cocoapods-deintegrate!
   mocha
   mocha-on-bacon

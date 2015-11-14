@@ -15,6 +15,4 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files`.split($/)
   spec.test_files    = spec.files.grep(%r{^spec/})
   spec.require_paths = ['lib']
-
-  spec.add_dependency 'cocoapods', '~> 0.34'
 end
