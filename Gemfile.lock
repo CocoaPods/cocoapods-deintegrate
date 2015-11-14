@@ -61,6 +61,8 @@ GEM
     molinillo (0.4.0)
     nap (1.0.0)
     netrc (0.7.8)
+    prettybacon (0.0.2)
+      bacon (~> 1.2)
     rake (10.4.2)
     thread_safe (0.3.5)
     tzinfo (1.2.2)
@@ -79,6 +81,7 @@ DEPENDENCIES
   cocoapods-deintegrate!
   mocha
   mocha-on-bacon
+  prettybacon
   rake
 
 BUNDLED WITH
