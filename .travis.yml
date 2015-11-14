@@ -1,0 +1,23 @@
+os:
+  - osx
+language: ruby
+cache: bundler
+rvm:
+    # OS X 10.9.5-10.10.0 (2.0.0-p481)
+  - system
+  # OS X 10.9.3-10.9.4
+  - 2.0.0-p451
+  # OS X 10.9.0-10.9.2
+  # TODO currently unavailable: https://github.com/travis-ci/travis-ci/issues/2918
+  # - 2.0.0-p247
+  - '2.1'
+
+branches:
+  only:
+    - master
+    - /.+-stable$/
+
+before_install:
+  # There is a bug in travis. When using system ruby, bundler is not
+  # installed and causes the default install action to fail.
+  - sudo gem install bundler
