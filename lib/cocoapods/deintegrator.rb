@@ -23,9 +23,7 @@ module Pod
         deintegrate_shell_script_phase(target, 'Check Pods Manifest.lock')
         deintegrate_shell_script_phase(target, 'Embed Pods Frameworks')
         deintegrate_pods_libraries(target)
-        target.build_configurations.each do |config|
-          config.base_configuration_reference.remove_from_project
-        end
+        deintegrate_configuration_file_references(target)
       end
     end
 
@@ -76,6 +74,21 @@ module Pod
       unless groups.empty?
         groups.each(&:remove_from_project)
         UI.puts "Deleted #{groups.count} empty `#{group_name}` groups from project."
+      end
+    end
+
+    def deintegrate_configuration_file_references(target)
+      config_files = target.build_configurations.map do |config|
+        config_file = config.base_configuration_reference
+        config_file if config_file && config_file.name =~ /^Pods.*\.xcconfig$/i
+      end.compact
+      unless config_files.empty?
+        UI.section('Deleting configuration file references') do
+          config_files.each do |file_reference|
+            UI.puts("- #{file_reference.name}")
+            file_reference.remove_from_project
+          end
+        end
       end
     end
 
