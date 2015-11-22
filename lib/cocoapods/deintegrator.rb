@@ -23,6 +23,9 @@ module Pod
         deintegrate_shell_script_phase(target, 'Check Pods Manifest.lock')
         deintegrate_shell_script_phase(target, 'Embed Pods Frameworks')
         deintegrate_pods_libraries(target)
+        target.build_configurations.each do |config|
+          config.base_configuration_reference.remove_from_project
+        end
       end
     end
 
