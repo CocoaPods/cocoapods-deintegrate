@@ -57,5 +57,17 @@ module Pod
     it 'deintegrates a framework integrated project' do
       deintegrate_project('Frameworks')
     end
+
+    it 'deintegrates a particular target' do
+      path = fixture_project('StaticLibraries/TestProject.xcodeproj')
+      project = Xcodeproj::Project.open(path)
+      target = project.native_targets.find { |t| t.name == 'TestProject' }
+      deintegrator = Deintegrator.new
+      deintegrator.deintegrate_target(target)
+
+      target.frameworks_build_phase.files.select { |f| f.display_name =~ /Pods/ }.should.be.empty
+      target.shell_script_build_phases.select { |p| p.name =~ /Pods/ }.should.be.empty
+      target.build_configurations.reject { |c| c.base_configuration_reference.nil? }.should.be.empty
+    end
   end
 end
