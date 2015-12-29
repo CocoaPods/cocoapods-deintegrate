@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/kylef/cocoapods-deintegrate'
   spec.license       = 'MIT'
 
-  spec.files         = `git ls-files`.split($INPUT_RECORD_SEPARATOR)
+  spec.files         = Dir['lib/**/*.rb'] + %w( README.md LICENSE )
   spec.test_files    = spec.files.grep(%r{^spec/})
   spec.require_paths = ['lib']
 
