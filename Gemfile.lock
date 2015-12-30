@@ -21,7 +21,7 @@ GIT
 PATH
   remote: .
   specs:
-    cocoapods-deintegrate (0.2.1)
+    cocoapods-deintegrate (1.0.0.beta.1)
 
 GEM
   remote: https://rubygems.org/
@@ -100,4 +100,4 @@ DEPENDENCIES
   rubocop
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
