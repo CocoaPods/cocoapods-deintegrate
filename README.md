@@ -6,7 +6,7 @@ Removing all traces of CocoaPods from an Xcode project.
 ## Installation
 
 ```bash
-$ sudo gem install cocoapods-deintegrate
+$ [sudo] gem install cocoapods-deintegrate
 ```
 
 ## Usage
