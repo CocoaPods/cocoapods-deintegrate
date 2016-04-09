@@ -3,7 +3,7 @@ module Pod
     class Deintegrate < Command
       include ProjectDirectory
 
-      self.summary = 'Deintegrate CocoaPods from your project.'
+      self.summary = 'Deintegrate CocoaPods from your project'
       self.description = <<-DESC
         Deintegrate your project from CocoaPods. Removing all traces
         of CocoaPods from your Xcode project.
