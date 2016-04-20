@@ -54,7 +54,7 @@ module Pod
 
     def deintegrate_shell_script_phase(target, phase_name)
       phases = target.shell_script_build_phases.select do |phase|
-        phase.name == phase_name
+        phase.name.include?(phase_name)
       end
 
       unless phases.empty?
