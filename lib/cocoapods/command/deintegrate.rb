@@ -1,5 +1,7 @@
 module Pod
   class Command
+    # @CocoaPods 1.0.0.beta.1
+    #
     class Deintegrate < Command
       include ProjectDirectory
 
