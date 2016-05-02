@@ -6,7 +6,8 @@
 
 ##### Bug Fixes
 
-* None.  
+* Handle when a build phase does not have a name.  
+  [Samuel Giddins](https://github.com/segiddins)
 
 
 ## 1.0.0.rc.1 (2016-04-30)

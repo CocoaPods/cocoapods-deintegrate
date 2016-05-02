@@ -54,7 +54,7 @@ module Pod
 
     def deintegrate_shell_script_phase(target, phase_name)
       phases = target.shell_script_build_phases.select do |phase|
-        phase.name.include?(phase_name)
+        phase.name && phase.name =~ /\A(\u{1F4E6}\s)?#{Regexp.escape(phase_name)}\z/
       end
 
       unless phases.empty?
