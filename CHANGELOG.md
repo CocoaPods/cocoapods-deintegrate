@@ -2,7 +2,9 @@
 
 ##### Enhancements
 
-* None.  
+* Add support for deintegrating [CP] build phases.  
+  [Danielle Tomlinson](https://github.com/dantoml)
+  [#27](https://github.com/CocoaPods/cocoapods-deintegrate/pull/27)
 
 ##### Bug Fixes
 
