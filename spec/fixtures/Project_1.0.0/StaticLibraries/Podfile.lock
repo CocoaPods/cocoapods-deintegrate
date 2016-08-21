@@ -1,0 +1,15 @@
+PODS:
+  - Expecta (0.3.1)
+  - NSAttributedString+CCLFormat (1.0.1)
+
+DEPENDENCIES:
+  - Expecta
+  - NSAttributedString+CCLFormat
+
+SPEC CHECKSUMS:
+  Expecta: a354d4633409dd9fe8c4f5ff5130426adbe31628
+  NSAttributedString+CCLFormat: ed7a2c814ac5444d0747c11ec0e532d46839a480
+
+PODFILE CHECKSUM: 409683259e5000f2109a96d9b694bc6498770d1e
+
+COCOAPODS: 1.0.0
