@@ -22,6 +22,7 @@ module Pod
         deintegrate_shell_script_phase(target, 'Copy Pods Resources')
         deintegrate_shell_script_phase(target, 'Check Pods Manifest.lock')
         deintegrate_shell_script_phase(target, 'Embed Pods Frameworks')
+        deintegrate_user_shell_script_phases(target)
         deintegrate_pods_libraries(target)
         deintegrate_configuration_file_references(target)
       end
@@ -49,6 +50,21 @@ module Pod
             frameworks_build_phase.remove_build_file(build_file)
           end
         end
+      end
+    end
+
+    def deintegrate_user_shell_script_phases(target)
+      user_script_phases = target.shell_script_build_phases.select do |phase|
+        !phase.name.nil? &&
+          phase.name.start_with?(Pod::Installer::UserProjectIntegrator::TargetIntegrator::USER_BUILD_PHASE_PREFIX)
+      end
+
+      unless user_script_phases.empty?
+        user_script_phases.each do |phase|
+          target.build_phases.delete(phase)
+        end
+
+        UI.puts("Deleted #{user_script_phases.count} user build phases.")
       end
     end
 
