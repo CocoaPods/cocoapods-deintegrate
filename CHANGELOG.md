@@ -2,7 +2,8 @@
 
 ##### Enhancements
 
-* None.  
+* Add support for deintegrating user script phases.  
+  [Dimitris Koutsogiorgas](https://github.com/dnkoutso)
 
 ##### Bug Fixes
 
