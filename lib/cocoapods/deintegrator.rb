@@ -55,8 +55,8 @@ module Pod
 
     def deintegrate_user_shell_script_phases(target)
       user_script_phases = target.shell_script_build_phases.select do |phase|
-        !phase.name.nil? &&
-          phase.name.start_with?(Pod::Installer::UserProjectIntegrator::TargetIntegrator::USER_BUILD_PHASE_PREFIX)
+        next unless phase.name
+        phase.name.start_with?('[CP-User] ')
       end
 
       unless user_script_phases.empty?
