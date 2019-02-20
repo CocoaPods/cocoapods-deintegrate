@@ -2,6 +2,9 @@ module Pod
   class Deintegrator
     include Config::Mixin
 
+    FRAMEWORK_NAMES = /^(libPods.*\.a)|(Pods.*\.framework)$/i
+    XCCONFIG_NAMES = /^Pods.*\.xcconfig$/i
+
     def deintegrate_project(project)
       UI.section("Deintegrating #{UI.path project.path}") do
         project.native_targets.each do |target|
@@ -40,7 +43,7 @@ module Pod
       frameworks_build_phase = target.frameworks_build_phase
 
       pods_build_files = frameworks_build_phase.files.select do |build_file|
-        build_file.display_name =~ /^(libPods.*\.a)|(Pods.*\.framework)$/i
+        build_file.display_name =~ FRAMEWORK_NAMES
       end
 
       unless pods_build_files.empty?
@@ -96,7 +99,7 @@ module Pod
     def deintegrate_configuration_file_references(target)
       config_files = target.build_configurations.map do |config|
         config_file = config.base_configuration_reference
-        config_file if config_file && config_file.name =~ /^Pods.*\.xcconfig$/i
+        config_file if config_file && config_file.name =~ XCCONFIG_NAMES
       end.compact
       unless config_files.empty?
         UI.section('Deleting configuration file references') do
@@ -117,7 +120,7 @@ module Pod
 
       pod_files = groups.flat_map do |group|
         group.files.select do |obj|
-          obj.name =~ /^Pods.*\.xcconfig$/i ||
+          obj.name =~ XCCONFIG_NAMES ||
             obj.path =~ /^(libPods.*\.a)|(Pods_.*\.framework)$/i
         end
       end
