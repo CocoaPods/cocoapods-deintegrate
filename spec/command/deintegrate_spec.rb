@@ -39,12 +39,18 @@ module Pod
       path = fixture_project(version, 'StaticLibraries/TestProject.xcodeproj')
       project = Xcodeproj::Project.open(path)
       target = project.native_targets.find { |t| t.name == named }
+      target_build_files_before_deintegration = target.frameworks_build_phase.files.select do |f|
+        f.display_name =~ Pod::Deintegrator::FRAMEWORK_NAMES
+      end.map(&:file_ref)
       deintegrator = Deintegrator.new
       deintegrator.deintegrate_target(target)
 
-      target.frameworks_build_phase.files.select { |f| f.display_name =~ /Pods/ }.should.be.empty
+      target.frameworks_build_phase.files.select do |f|
+        f.display_name =~ Pod::Deintegrator::FRAMEWORK_NAMES
+      end.should.be.empty
       target.shell_script_build_phases.select { |p| p.name =~ /Pods/ }.should.be.empty
       target.build_configurations.reject { |c| c.base_configuration_reference.nil? }.should.be.empty
+      project['Frameworks'].files.none? { |f| target_build_files_before_deintegration.include?(f) }.should.be.true
     end
 
     describe 'CLAide' do
