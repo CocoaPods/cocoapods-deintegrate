@@ -1,3 +1,14 @@
+## Master
+
+##### Enhancements
+
+* None.  
+
+##### Bug Fixes
+
+* None.  
+
+
 ## 1.0.4 (2019-03-27)
 
 ##### Enhancements
