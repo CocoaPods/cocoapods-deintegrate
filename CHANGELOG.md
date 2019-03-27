@@ -6,7 +6,8 @@
 
 ##### Bug Fixes
 
-* None.  
+* Ensure deintegrator deletes the pods file reference from the 'Frameworks' group.  
+  [Dimitris Koutsogiorgas](https://github.com/dnkoutso) & [Doug Mead](https://github.com/dmead28)
 
 
 ## 1.0.3 (2019-02-21)

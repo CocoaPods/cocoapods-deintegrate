@@ -50,6 +50,9 @@ module Pod
         UI.section('Removing Pod libraries from build phase:') do
           pods_build_files.each do |build_file|
             UI.puts("- #{build_file.display_name}")
+            if build_file.file_ref.build_files.count == 1
+              build_file.file_ref.remove_from_project
+            end
             frameworks_build_phase.remove_build_file(build_file)
           end
         end
