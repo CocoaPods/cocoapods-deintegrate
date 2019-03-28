@@ -118,7 +118,7 @@ module Pod
       end
 
       it 'deintegrates a particular target' do
-        deintegrate_target(@version, 'TestProjectTests')
+        deintegrate_target(@version, 'TestProject')
       end
     end
 
