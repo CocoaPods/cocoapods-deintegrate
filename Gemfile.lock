@@ -1,5 +1,6 @@
-PATH
-  remote: ../CocoaPods
+GIT
+  remote: https://github.com/CocoaPods/CocoaPods.git
+  revision: 8c5549330970731b73f98f2b7b2b26331b990718
   specs:
     cocoapods (1.7.0.beta.2)
       activesupport (>= 4.0.2, < 5)
