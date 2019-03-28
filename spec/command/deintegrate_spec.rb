@@ -127,8 +127,8 @@ module Pod
         @version = 'RemoveTestsTargetProject'
       end
 
-      def deintegrate_test_target(version, target_name, test_str)
-        path = fixture_project(version, "#{test_str}/RemoveTestsTargetProject.xcodeproj")
+      def deintegrate_test_target(version, target_name, referrer_num)
+        path = fixture_project(version, "Referrers_#{referrer_num}/RemoveTestsTargetProject.xcodeproj")
         project = Xcodeproj::Project.open(path)
         target = project.native_targets.find { |t| t.name == target_name }
         puts "deintegrate target: #{target}"
@@ -144,15 +144,19 @@ module Pod
         end.should.be.empty
         target.shell_script_build_phases.select { |p| p.name =~ /Pods/ }.should.be.empty
         target.build_configurations.reject { |c| c.base_configuration_reference.nil? }.should.be.empty
-        project['Frameworks'].files.none? { |f| target_build_files_before_deintegration.include?(f) }.should.be.true
+        if referrer_num == 1
+          project['Frameworks'].files.none? { |f| target_build_files_before_deintegration.include?(f) }.should.be.true
+        else
+          project['Frameworks'].files.none? { |f| target_build_files_before_deintegration.include?(f) }.should.be.false
+        end
       end
 
       it 'deintegrates a test target with 1 referrer' do
-        deintegrate_test_target(@version, 'RemoveTestsTargetProject', 'OneReferrer')
+        deintegrate_test_target(@version, 'RemoveTestsTargetProject', 1)
       end
 
       it 'deintegrates a test target with 2 referrer' do
-        deintegrate_test_target(@version, 'RemoveTestsTargetProject', 'TwoReferrers')
+        deintegrate_test_target(@version, 'RemoveTestsTargetProject', 2)
       end
     end
   end
