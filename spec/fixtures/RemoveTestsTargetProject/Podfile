@@ -1,0 +1,21 @@
+source 'https://stash.corp.squareup.com/scm/ios/cocoapodspecs.git'
+source 'https://stash.corp.squareup.com/scm/ios/squarepods-binary.git'
+source 'https://stash.corp.squareup.com/scm/ios/squarepods.git'
+source 'https://github.com/CocoaPods/Specs'
+
+# Disable CocoaPods stats plugin.
+ENV['COCOAPODS_DISABLE_STATS'] = 'true'
+
+install! 'cocoapods', :generate_multiple_pod_projects => true, :incremental_installation => true
+workspace 'RemoveTestsTargetProject'
+
+target 'RemoveTestsTargetProject' do
+    
+    pod 'Alamofire'
+
+    target 'RemoveTestsTargetProjectTests' do
+      inherit! :search_paths
+    end
+
+end
+

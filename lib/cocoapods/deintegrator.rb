@@ -41,16 +41,28 @@ module Pod
 
     def deintegrate_pods_libraries(target)
       frameworks_build_phase = target.frameworks_build_phase
+      puts "*** frameworks_build_phase #{frameworks_build_phase}"
+      puts "    frameworks_build_phase #{frameworks_build_phase.display_name}"
 
       pods_build_files = frameworks_build_phase.files.select do |build_file|
         build_file.display_name =~ FRAMEWORK_NAMES
       end
 
+      #puts "*** FRAMEWORK_NAMES #{FRAMEWORK_NAMES}"
+
+      puts "*** pods_build_files #{pods_build_files}"
+      puts "    pods_build_files #{pods_build_files.map(&:display_name)}"
+
       unless pods_build_files.empty?
+        puts 'Removing Pod libraries from build phase:'
         UI.section('Removing Pod libraries from build phase:') do
           pods_build_files.each do |build_file|
             UI.puts("- #{build_file.display_name}")
+            puts "- build_file #{build_file.display_name}"
+            puts "  *** build_file.file_ref #{build_file.file_ref.display_name}"
+            puts "  *** build_file.file_ref.build_files count #{build_file.file_ref.build_files.count}"
             if build_file.file_ref.build_files.count == 1
+              puts "    ***** remove from project *****"
               build_file.file_ref.remove_from_project
             end
             frameworks_build_phase.remove_build_file(build_file)

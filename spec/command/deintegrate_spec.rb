@@ -118,7 +118,37 @@ module Pod
       end
 
       it 'deintegrates a particular target' do
-        deintegrate_target(@version, 'TestProject')
+        deintegrate_target(@version, 'TestProjectTests')
+      end
+    end
+
+    describe 'RemoveTestsTargetProject' do
+      before do
+        @version = 'RemoveTestsTargetProject'
+      end
+
+      def deintegrate_target_foo(version, named)
+        path = fixture_project(version, 'RemoveTestsTargetProject.xcodeproj')
+        project = Xcodeproj::Project.open(path)
+        target = project.native_targets.find { |t| t.name == named }
+        puts "deintegrate target: #{target}"
+        target_build_files_before_deintegration = target.frameworks_build_phase.files.select do |f|
+          f.display_name =~ Pod::Deintegrator::FRAMEWORK_NAMES
+        end.map(&:file_ref)
+        deintegrator = Deintegrator.new
+        puts "* deintegrate target: #{target}"
+        deintegrator.deintegrate_target(target)
+
+        target.frameworks_build_phase.files.select do |f|
+          f.display_name =~ Pod::Deintegrator::FRAMEWORK_NAMES
+        end.should.be.empty
+        target.shell_script_build_phases.select { |p| p.name =~ /Pods/ }.should.be.empty
+        target.build_configurations.reject { |c| c.base_configuration_reference.nil? }.should.be.empty
+        project['Frameworks'].files.none? { |f| target_build_files_before_deintegration.include?(f) }.should.be.true
+      end
+
+      it 'deintegrates a test target' do
+        deintegrate_target_foo(@version, 'RemoveTestsTargetProjectTests')
       end
     end
   end
