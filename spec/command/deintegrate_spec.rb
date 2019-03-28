@@ -131,12 +131,10 @@ module Pod
         path = fixture_project(version, "Referrers_#{referrer_num}/RemoveTestsTargetProject.xcodeproj")
         project = Xcodeproj::Project.open(path)
         target = project.native_targets.find { |t| t.name == target_name }
-        puts "deintegrate target: #{target}"
         target_build_files_before_deintegration = target.frameworks_build_phase.files.select do |f|
           f.display_name =~ Pod::Deintegrator::FRAMEWORK_NAMES
         end.map(&:file_ref)
         deintegrator = Deintegrator.new
-        puts "* deintegrate target: #{target}"
         deintegrator.deintegrate_target(target)
 
         target.frameworks_build_phase.files.select do |f|
