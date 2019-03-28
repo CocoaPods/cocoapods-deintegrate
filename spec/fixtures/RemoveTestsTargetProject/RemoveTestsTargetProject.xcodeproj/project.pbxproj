@@ -16,6 +16,7 @@
 		A2B7B2CE224D57EA003BEA9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2B7B2CC224D57EA003BEA9D /* LaunchScreen.storyboard */; };
 		A2B7B2D9224D57EA003BEA9D /* RemoveTestsTargetProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7B2D8224D57EA003BEA9D /* RemoveTestsTargetProjectTests.swift */; };
 		A2B7B2E4224D57EA003BEA9D /* RemoveTestsTargetProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7B2E3224D57EA003BEA9D /* RemoveTestsTargetProjectUITests.swift */; };
+		A2B7B2FB224D7726003BEA9D /* libPods-RemoveTestsTargetProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC41F0D8931209E60E891AC3 /* libPods-RemoveTestsTargetProjectTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2B7B2FB224D7726003BEA9D /* libPods-RemoveTestsTargetProjectTests.a in Frameworks */,
 				767AA5ABE74C0A7339CA216A /* libPods-RemoveTestsTargetProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,7 +147,6 @@
 				5FFDDC3761C537761D98B306 /* Pods-RemoveTestsTargetProjectTests.debug.xcconfig */,
 				4FC2C6ABD8C054F29D5890FE /* Pods-RemoveTestsTargetProjectTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
