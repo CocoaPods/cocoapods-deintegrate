@@ -1,0 +1,12 @@
+Alamofire:
+  LABEL: Alamofire
+  PROJECT_PATH: "/Users/dmead/Development/cocoapods-deintegrate/spec/fixtures/RemoveTestsTargetProject/Pods/Alamofire.xcodeproj"
+  UUID: 81B7E9B7CD0CADA087A4BB042FBA92E7
+Pods-RemoveTestsTargetProject:
+  LABEL: Pods-RemoveTestsTargetProject
+  PROJECT_PATH: "/Users/dmead/Development/cocoapods-deintegrate/spec/fixtures/RemoveTestsTargetProject/Pods/Pods.xcodeproj"
+  UUID: 03D24E31B472A2FAE66A25DC4BBB1260
+Pods-RemoveTestsTargetProjectTests:
+  LABEL: Pods-RemoveTestsTargetProjectTests
+  PROJECT_PATH: "/Users/dmead/Development/cocoapods-deintegrate/spec/fixtures/RemoveTestsTargetProject/Pods/Pods.xcodeproj"
+  UUID: 7CB474B065A49BEA9D1368FDDBE88930

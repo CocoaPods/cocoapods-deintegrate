@@ -1,0 +1,19 @@
+BUILD_CONFIGURATIONS:
+  Debug: :debug
+  Release: :release
+CACHE_KEYS:
+  Alamofire:
+    BUILD_SETTINGS_CHECKSUM:
+      Alamofire: 9e5b3730eb2c8406df32ffc3d2f9821d
+    CHECKSUM: 16ce2c353fb72865124ddae8a57c5942388f4f11
+    SPECS:
+      - Alamofire (4.8.1)
+  Pods-RemoveTestsTargetProject:
+    BUILD_SETTINGS_CHECKSUM:
+      Debug: 1899025c21c3f86d3916287a5dbb2130
+      Release: 1899025c21c3f86d3916287a5dbb2130
+  Pods-RemoveTestsTargetProjectTests:
+    BUILD_SETTINGS_CHECKSUM:
+      Debug: 9bca9079ace49a63dd47c8fb3ba4e55f
+      Release: 9bca9079ace49a63dd47c8fb3ba4e55f
+OBJECT_VERSION: 50
