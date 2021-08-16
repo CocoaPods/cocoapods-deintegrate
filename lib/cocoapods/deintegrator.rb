@@ -40,7 +40,11 @@ module Pod
     end
 
     def deintegrate_pods_libraries(target)
-      frameworks_build_phase = target.frameworks_build_phase
+      # `frameworks_build_phase` returns but does not automatically create this build phase
+      # when we are deinitegrating. Its a bit of a weird API but thats what Xcodeproj gives
+      # us.
+      frameworks_build_phase = target.frameworks_build_phases
+      return if frameworks_build_phase.nil?
 
       pods_build_files = frameworks_build_phase.files.select do |build_file|
         build_file.display_name =~ FRAMEWORK_NAMES
