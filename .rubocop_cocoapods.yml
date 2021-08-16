@@ -1,5 +1,7 @@
 AllCops:
   Include:
+    - lib/**/*.rb
+    - spec/**/*.rb
     - ./Rakefile
     - ./Gemfile
     - ./*.gemspec
@@ -40,10 +42,10 @@ Encoding:
 
 # Having these make it easier to *not* forget to add one when adding a new
 # value and you can simply copy the previous line.
-TrailingComma:
+TrailingCommaInArguments:
   EnforcedStyleForMultiline: comma
 
-Style/MultilineOperationIndentation:
+Layout/MultilineOperationIndentation:
   EnforcedStyle: indented
 
 # Clashes with CLAide Command#validate!
@@ -121,6 +123,6 @@ ClassAndModuleChildren:
   Exclude:
     - spec/**/*
 
-UselessComparison:
+BinaryOperatorWithIdenticalOperands:
   Exclude:
     - spec/**/*
