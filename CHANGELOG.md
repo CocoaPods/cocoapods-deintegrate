@@ -6,7 +6,7 @@
 
 ##### Bug Fixes
 
-* Do not create framework build phase on targets being integrated.  
+* Do not create framework build phase on targets being de-integrated.  
   [Dimitris Koutsogiorgas](https://github.com/dnkoutso)
   [#39](https://github.com/CocoaPods/cocoapods-deintegrate/issues/39)
 
